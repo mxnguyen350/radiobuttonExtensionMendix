@@ -1,2 +1,2 @@
 # radiobuttonExtensionMendix
-Allow for custom notes per radiobutton in mendix
+This widget allows footnotes to be added to the Radio Button widget.
