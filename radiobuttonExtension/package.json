@@ -3,14 +3,14 @@
   "widgetName": "RadiobuttonExtension",
   "version": "1.0.0",
   "description": "An extension for radio buttons, that allow for the addition of subtext to the radio button options",
-  "copyright": "© Mendix Technology BV 2022. All rights reserved.",
+  "copyright": "",
   "author": "Michael Xuan Nguyen",
   "engines": {
     "node": ">=12"
   },
   "license": "Apache-2.0",
   "config": {
-    "projectPath": "./tests/testProject",
+    "projectPath": "C:\\Users\\mxnguyen\\Documents\\Mendix\\TestEnvironment-main",
     "mendixHost": "http://localhost:8080",
     "developmentPort": 3000
   },

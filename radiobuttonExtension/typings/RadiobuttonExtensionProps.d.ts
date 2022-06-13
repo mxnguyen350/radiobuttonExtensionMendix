@@ -11,6 +11,19 @@ export type BootstrapStyleEnum = "default" | "primary" | "success" | "info" | "i
 
 export type RadiobuttonextensionTypeEnum = "badge" | "label";
 
+export interface Button {
+    enum: {value: string, key:string};
+    subtextString: string;
+}
+
+export interface ButtonsList extends Array<Button>{}
+
+export interface RadioButtonExtensionProps {
+    radioButtonName: string;
+    buttonsList: ButtonsList;
+    style?: CSSProperties;
+}
+
 export interface RadiobuttonExtensionContainerProps {
     name: string;
     class: string;
@@ -20,7 +33,8 @@ export interface RadiobuttonExtensionContainerProps {
     radiobuttonextensionValue: string;
     bootstrapStyle: BootstrapStyleEnum;
     radiobuttonextensionType: RadiobuttonextensionTypeEnum;
-    onClickAction?: ActionValue;
+    radioButtonName: string;
+    buttonsList: ButtonsList;
 }
 
 export interface RadiobuttonExtensionPreviewProps {
