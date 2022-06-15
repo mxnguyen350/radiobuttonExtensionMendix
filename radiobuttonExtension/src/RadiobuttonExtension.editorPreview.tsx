@@ -2,7 +2,7 @@ import { ReactElement, createElement } from "react";
 
 import { parseInlineStyle } from "@mendix/pluggable-widgets-tools";
 
-import { BadgeSample, BadgeSampleProps } from "./components/RadioButtonExtension";
+import { ExtendRadioButtons, RadiobuttonExtensionProps } from "./components/RadioButtonExtension";
 import { RadiobuttonExtensionPreviewProps } from "../typings/RadiobuttonExtensionProps";
 
 function parentInline(node?: HTMLElement | null): void {
@@ -12,22 +12,27 @@ function parentInline(node?: HTMLElement | null): void {
     }
 }
 
-function transformProps(props: RadiobuttonExtensionPreviewProps): BadgeSampleProps {
+function transformProps(props: RadiobuttonExtensionPreviewProps): RadiobuttonExtensionProps {
     return {
-        type: props.radiobuttonextensionType,
-        bootstrapStyle: props.bootstrapStyle,
         className: props.className,
-        clickable: false,
+        readOnly: props.readOnly,
         style: parseInlineStyle(props.style),
-        defaultValue: props.radiobuttonextensionValue ? props.radiobuttonextensionValue : "",
-        value: props.valueAttribute
+        radioButtonName: props.radioButtonName,
+        buttonsList: props.buttonsList
+        // type: props.radiobuttonextensionType,
+        // bootstrapStyle: props.bootstrapStyle,
+        // className: props.className,
+        // clickable: false,
+        // style: parseInlineStyle(props.style),
+        // defaultValue: props.radiobuttonextensionValue ? props.radiobuttonextensionValue : "",
+        // value: props.valueAttribute
     };
 }
 
 export function preview(props: RadiobuttonExtensionPreviewProps): ReactElement {
     return (
         <div ref={parentInline}>
-            <BadgeSample {...transformProps(props)}></BadgeSample>
+            <ExtendRadioButtons {...transformProps(props)}></ExtendRadioButtons>
         </div>
     );
 }

@@ -1,4 +1,4 @@
-import { ReactElement, createElement, useCallback } from "react";
+import { ReactElement, createElement } from "react";
 
 import { RadiobuttonExtensionContainerProps } from "../typings/RadiobuttonExtensionProps";
 import { ExtendRadioButtons } from "./components/RadioButtonExtension";
@@ -13,6 +13,8 @@ export function RadiobuttonExtension(props: RadiobuttonExtensionContainerProps):
 
     return (
         <ExtendRadioButtons
+            className={""}
+            readOnly={false}
             radioButtonName={radioButtonName}
             buttonsList={buttonsList}
             style={style}

@@ -1,16 +1,24 @@
 import { ReactElement, createElement } from "react";
-import { Button, RadioButtonExtensionProps } from "typings/RadiobuttonExtensionProps";
+import { CSSProperties } from "react";
+import { ButtonsListPreviewType } from "typings/RadiobuttonExtensionProps";
+import { ButtonsListType } from "typings/RadiobuttonExtensionProps";
 
-// temporary fix to not being ale to find an enum type
+export interface RadiobuttonExtensionProps {
+    className: string;
+    style?: CSSProperties;
+    readOnly: boolean;
+    radioButtonName: string;
+    buttonsList: ButtonsListPreviewType[];
+}
 
-
-export function ExtendRadioButtons(props: RadioButtonExtensionProps): ReactElement {
-    let x:Button
+export function ExtendRadioButtons(props: RadiobuttonExtensionProps): ReactElement {
+    let x:ButtonsListType
     let style: string
 
     // allows flexibility of styles between default and user specified
+    // in future update to allow for styles to overlap
     if (props.style != null) {
-        style = 'style:' + '"' + props.style + '"'
+        style = 'style=' + '"' + props.style + '"'
     } else {
         style = 'class="subtext"'
     }
@@ -28,7 +36,7 @@ export function ExtendRadioButtons(props: RadioButtonExtensionProps): ReactEleme
         subText.innerHTML = newHtml
 
         // Using xpath to find the label element that we want to place under by its text, there is no class or id to find the label by so it has to be done this way.
-        let xpath = '//a[text()="' + x.enum.value + '"]'
+        let xpath = '//a[text()="' + x.enumCaption + '"]'
         let matchingElement = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         
         // Append our new Element under the option.

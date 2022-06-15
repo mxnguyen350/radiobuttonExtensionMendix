@@ -11,32 +11,29 @@
     <properties>
         <propertyGroup caption="Config">
             <property key="radioButtonName" type="string" required="true">
-                <caption>The name of the radio button widget to target</caption>
-                <description />
+                <caption>Radio Button Name</caption>
+                <description>The name of the radio button widget you want to target (e.g. radioButtons1)</description>
             </property>
             <!-- Below I make a list to contain all of the buttons, requiring at least one -->
             <property key="buttonsList" type="object" isList="true" required="true">
                 <caption>Buttons To Update</caption>
                 <description />
                 <properties>
-                    <property key="enum" type="attribute" datasource="../datasource">
-                        <caption>The enum value of the option to edit</caption>
-                        <attributeTypes>
-                            <attributeType name="Enum" />
-                        </attributeTypes>
-                    </property>
-                    <property key="subtextString" type="string" required="true">
-                        <caption>The subtext you wish to add to your radio button</caption>
-                    </property>
+                    <propertyGroup caption="General">
+                        <property key="enumName" type="string" required="true">
+                            <caption>Enum Key</caption>
+                            <description>The key that identifies the enum value</description>
+                        </property>
+                        <property key="enumCaption" type="string" required="true">
+                            <caption>Enum Caption</caption>
+                            <description>The full text of the enum that will be displayed with the radio button</description>
+                        </property>
+                        <property key="subtextString" type="string" required="true">
+                            <caption>Subtext</caption>
+                            <description>This is the string that will be attahced as a substring to the radio button</description>
+                        </property>
+                    </propertyGroup>
                 </properties>
-            </property>
-        </propertyGroup>
-        <!-- Allowing for custom styling on the subtext -->
-        <propertyGroup caption="Styles">
-            <property key="style" type="expression" defailtValue="">
-                <caption>Style</caption>
-                <description>A string with the CSS for your subtext style (This will overwrite the default)</description>
-                <returnType type="string" />
             </property>
         </propertyGroup>
     </properties>
